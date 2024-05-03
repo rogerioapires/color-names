@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>me.pandras.color_names</id>
+    <!--suppress PluginXmlCapitalization -->
+    <name>Color Names</name>
+    <version>2.0.0</version>
+    <vendor email="contact@pandras.me">PANDRAS</vendor>
+    <idea-version since-build="233.0"/>
+
+    <description><![CDATA[
+        Plugin for retrieving approximate color names for hex colors from https://www.color-name.com/.
+        Select a HEX color String, right-click and choose Color Name to get a cool name for it.
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <ul>
+            <li>Initial release.</li>
+        </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.ColorNamesBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="ColorNamesNotificationGroup" displayType="TOOL_WINDOW" toolWindowId="Color Names" />
+    </extensions>
+
+    <actions>
+        <action id="ColorNames"
+                class="me.pandras.color_names.ColorNamesAction"
+                text="Get Color Name"
+                description="Fetches the color name for a HEX code"
+                icon="/color-names.svg">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
